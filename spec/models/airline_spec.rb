@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Airline, type: :model do
+RSpec.describe Airline do
   describe 'validations' do
     it {should validate_presence_of :name}
   end
