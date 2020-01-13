@@ -16,6 +16,7 @@ RSpec.describe Flight, type: :model do
 
   describe 'methods' do
     it "can calculate the number of minors and adults" do
+      
     southwest = Airline.create(name: "Southwest")
     southwest_1 = southwest.flights.create(number: "SW1", date: "10/10/20", time: "1300", departure_city: "Minneapolis", arrival_city: "Nashville")
     linda = Passenger.create(name: "Linda", age: 28)
@@ -30,5 +31,5 @@ RSpec.describe Flight, type: :model do
     expect(southwest_1.number_of_minors).to eq 2
     expect(southwest_1.number_of_adults).to eq 2
     end
-  end 
+  end
 end
