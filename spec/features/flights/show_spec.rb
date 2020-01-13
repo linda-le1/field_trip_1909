@@ -25,6 +25,12 @@ RSpec.describe "Flights Show Spec" do
       expect(page).to have_content("#{linda.name}")
       expect(page).to have_content("#{dave.name}")
 
+      expect(page).to_not have_content("Flight Number: #{southwest_2.number}")
+      expect(page).to_not have_content("Date: #{southwest_2.date}")
+      expect(page).to_not have_content("Time: #{southwest_2.time}")
+      expect(page).to_not have_content("Departing From: #{southwest_2.departure_city}")
+      expect(page).to_not have_content("Arriving At: #{southwest_2.arrival_city}")
+
     end
   end
 end
