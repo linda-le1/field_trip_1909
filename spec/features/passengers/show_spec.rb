@@ -53,9 +53,9 @@ RSpec.describe "Passengers Show Page" do
       fill_in 'number',      with: 'SW3'
       click_button 'Add Flight'
 
-      expect(current_path).to eql "passengers/#{@linda.id}"
+      expect(current_path).to eql "/passengers/#{@linda.id}"
       expect(page).to have_content("Flight Number: #{@southwest_3.number}")
 
     end
   end
-end 
+end

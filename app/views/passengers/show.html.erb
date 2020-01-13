@@ -6,7 +6,7 @@
   </section>
 <% end %>
 
-<%= form_tag "/passengers/:id/flights" do %>
+<%= form_tag "/passengers/#{@passenger.id}/flights", method: 'patch' do %>
 <%= label_tag 'number' %>
 <%= text_field_tag 'number' %><br/>
 <%= submit_tag "Add Flight" %>
