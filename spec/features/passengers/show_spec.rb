@@ -24,11 +24,11 @@ RSpec.describe "Passengers Show Page" do
       expect(page).to_not have_content("Flights for #{@dave.name}")
 
       within "#flight-#{@southwest_1.id}" do
-        expect(page).to have_link("Flight Number: #{@southwest_1.id}")
+        expect(page).to have_content("Flight Number: #{@southwest_1.id}")
       end
 
       within "#flight-#{@southwest_2.id}" do
-        expect(page).to have_link("Flight Number: #{@southwest_2.id}")
+        expect(page).to have_content("Flight Number: #{@southwest_2.id}")
       end
 
     end
@@ -38,10 +38,11 @@ RSpec.describe "Passengers Show Page" do
       visit "passengers/#{@linda.id}"
 
       within "#flight-#{@southwest_1.id}" do
-        expect(page).to have_link("Flight Number: #{@southwest_1.id}")
-        click_on("Flight Number: #{@southwest_1.id}")
+        expect(page).to have_link("#{@southwest_1.id}")
+        click_on("#{@southwest_1.id}")
         expect(current_path).to eq "/flights/#{@southwest_1.id}"
       end
+
     end
   end
 end
