@@ -11,10 +11,15 @@ RSpec.describe "Flights Show Spec" do
       @linda = Passenger.create(name: "Linda", age: 28)
       @dave = Passenger.create(name: "Dave", age:32)
       @jordy = Passenger.create(name: "Jordy", age:6)
+      @milly = Passenger.create(name: "Milly", age:3)
 
       @southwest_1.passengers << @linda
       @southwest_1.passengers << @dave
       @southwest_1.passengers << @jordy
+
+      @southwest_2.passengers << @dave
+      @southwest_2.passengers << @jordy
+      @southwest_2.passengers << @milly
 
     end
       it 'I can see the information for that flight' do
@@ -44,6 +49,11 @@ RSpec.describe "Flights Show Spec" do
 
       expect(page).to have_content("Number of Minors: 1")
       expect(page).to have_content("Number of Adults: 2")
+
+      visit "/flights/#{@southwest_2.id}"
+
+      expect(page).to have_content("Number of Adults: 1")
+      expect(page).to have_content("Number of Minors: 2")
 
     end
   end
