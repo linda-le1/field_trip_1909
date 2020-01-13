@@ -2,6 +2,12 @@
 
 <% @passenger.flights.each do |f| %>
   <section id = "flight-<%=f.id%>">
-    Flight Number: <%= link_to f.id, "/flights/#{f.id}" %>
+    Flight Number: <%= link_to f.number, "/flights/#{f.id}" %>
   </section>
+<% end %>
+
+<%= form_tag "/passengers/:id/flights" do %>
+<%= label_tag 'number' %>
+<%= text_field_tag 'number' %><br/>
+<%= submit_tag "Add Flight" %>
 <% end %>
