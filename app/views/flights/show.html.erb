@@ -5,7 +5,7 @@
     <p>Departing From: <%= @flight.departure_city %></p>
     <p>Arriving At: <%= @flight.arrival_city %></p>
     <p>Passenger List: <% @flight.passengers.each do |p| %>
-                      <%= p.name %>
+                      <li><%= p.name %></li> 
                       <% end %> </p>
 
     <p> Number of Minors: <%=@flight.number_of_minors%></br>
